@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="/FrontEnd/style.css">
+  <title>Document</title>
+</head>
+<!--ONLOAD es para ver los datos en la consola del navegador lo ponemos en la etiqueta BODY-->
+
+<body>
+  
+  <button type="button" class="btn btn-outline-dark BTN1"data-bs-toggle="modal" data-bs-target="#exampleModal">
+
+    Registrar datos
+  </button>
+  <button type="button" class="btn btn-outline-dark" onclick="Traerdatos()">Registro</button>
+  <br>
+  <br>
+  <!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Registro de Proveedores</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">ID:</label>
+          <input type="text" class="form-control" id="ID">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Nombre Proveedor:</label>
+          <input type="text" class="form-control" id="Nombre_Proveedor">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Fecha de entrega:</label>
+          <input type="text" class="form-control" id="Fecha" >
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Tipo Producto:</label>
+          <input type="text" class="form-control" id="Tipo_Producto" >
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Precio:</label>
+          <input type="text" class="form-control" id="Precio" >
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="">Actualizar</button>
+        <button type="submit" class="btn btn-primary" onclick="InsertarDatos()">Registrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- Tabla de datos ya ingresados-->
+  <section>
+    <table class="table table-striped">
+      <thead class="table-dark">
+        <tr style="text-align: center;">
+          <th scope="col">ID</th>
+          <th scope="col">Nombre Proveedor</th>
+          <th scope="col">Tipo Producto</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="Tabla_Cuerpo" style="text-align: center;">
+      </tbody>
+    </table>
+    
+    
+  </section>
+
+  <script src="/FrontEnd/FrontEND.js"></script>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
+</html>
