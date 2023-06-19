@@ -16,29 +16,28 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tabla_materiaprima`
+-- Table structure for table `usuario`
 --
 
-DROP TABLE IF EXISTS `tabla_materiaprima`;
+DROP TABLE IF EXISTS `usuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tabla_materiaprima` (
-  `ID` int NOT NULL,
-  `Ingredientes` varchar(85) NOT NULL,
-  `Cantidades` int NOT NULL,
-  `Costo` int NOT NULL,
+CREATE TABLE `usuario` (
+  `ID` int NOT NULL AUTO_INCREMENT,
+  `Usuario` varchar(80) NOT NULL,
+  `Contraseña` varchar(80) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tabla_materiaprima`
+-- Dumping data for table `usuario`
 --
 
-LOCK TABLES `tabla_materiaprima` WRITE;
-/*!40000 ALTER TABLE `tabla_materiaprima` DISABLE KEYS */;
-INSERT INTO `tabla_materiaprima` VALUES (1,'Mantequilla Amarilla',2,50),(2,'Huevo',5,45),(3,'Agua',3,120),(4,'Arina',2,200),(5,'Azucar',5,45),(6,'Azucar',5,45);
-/*!40000 ALTER TABLE `tabla_materiaprima` ENABLE KEYS */;
+LOCK TABLES `usuario` WRITE;
+/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+INSERT INTO `usuario` VALUES (1,'CJMC','cjmc_1998'),(2,'CJMC','7e7168457176624cd41580e6f9cc79868d05ac0d1e4ecc2488cf44e8e8526069');
+/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

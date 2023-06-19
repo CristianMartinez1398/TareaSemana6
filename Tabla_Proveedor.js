@@ -12,7 +12,7 @@ var C = mysql.createConnection({
 
 
 rutas.get('/api/v1/TablaProveedores', (req, res) =>{
-    C.query('select ID, Nombre_Proveedor, Tipo_Producto, Precio from inventario_panaderia.tabla_proveedor', function(err, rows, fields) {
+    C.query('select ID, Nombre_Proveedor, Tipo_Producto, Telefono, Fotografia from inventario_panaderia.tabla_proveedor', function(err, rows, fields) {
         if (err) throw err;
         res.status(200).json(rows)
         //console.log('The solution is: ', rows[0].solution);
@@ -31,7 +31,7 @@ rutas.get('/api/v1/TablaProveedores/:id', (req, res) =>{
 
 //Crea un tipo de panes
 rutas.post('/api/v1/TablaProveedores', (req, res) =>{
-    const {ID,Nombre_Proveedor,Fecha_Entrega,Tipo_Producto,Precio} = req.body;
+    const {ID,Nombre_Proveedor,Fecha_Entrega,Tipo_Producto,Telefono, Fotografia} = req.body;
     let respuestaErrorCliente = [];
 
     if (!ID) {
@@ -46,18 +46,18 @@ rutas.post('/api/v1/TablaProveedores', (req, res) =>{
     if (!Tipo_Producto) {
         respuestaErrorCliente.push("El tipo de producto no puede estar vacia ingrese el dato por favor.")
     }
-    if (Precio <= 0) {
-        respuestaErrorCliente.push("El precio tiene que ser mayor que 0.")
+    if (!Telefono) {
+        respuestaErrorCliente.push("El telefono no puede estar vacia ingrese el dato por favor.")
     }
-    if (!Precio) {
-        respuestaErrorCliente.push("El precio no puede estar vacia ingrese el dato por favor.")
+    if (!Fotografia) {
+        respuestaErrorCliente.push("La fotografia no puede estar vacia ingrese el dato por favor.")
     }
     if (respuestaErrorCliente.length > 0) {
         res.status(400).json({codigo: 400, mensaje: respuestaErrorCliente})
         return;
     }
     //res.status(200).json(id)
-    C.query('insert into inventario_panaderia.tabla_proveedor(ID,Nombre_Proveedor, Fecha_Entrega, Tipo_Producto, Precio) values(?,?, ?, ?, ?);',[ID,Nombre_Proveedor,Fecha_Entrega,Tipo_Producto,Precio], function(err, rows, fields) {
+    C.query('insert into inventario_panaderia.tabla_proveedor(ID,Nombre_Proveedor, Fecha_Entrega, Tipo_Producto, Telefono, Fotografia) values(?,?, ?, ?, ?, ?);',[ID,Nombre_Proveedor,Fecha_Entrega,Tipo_Producto,Telefono, Fotografia], function(err, rows, fields) {
         //if (err) throw err;
         if (err) {
             console.log(err);

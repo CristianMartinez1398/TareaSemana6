@@ -7,8 +7,33 @@ const helmet = require('helmet')
 const RutasProveedor = require('./Tabla_Proveedor')
 const RutasTipoPanes = require('./Tabla_Tipo_Panes')
 const RutasMateriaPrima = require('./Tabla_Materia_Prima')
-const RutasProducto = require('./Tabla_Producto')
+const RutasProducto = require('./routes/Api/Tabla_Producto')
 const RutasMateriaHasTablaProducto = require('./Tabla_Materia_Has_Tabla_Producto')
+const swaggerJSDoc = require('swagger-jsdoc')
+const swaggerUi = require('swagger-ui-express')
+
+const rutasProducto = require('./routes/Api/Tabla_Producto')
+const swaggerOptions = {
+  definition: {
+    openapi: '3.0.0',
+    info: {
+      title: 'Api para el manejo de Inventario de Panaderia',
+      version: '1.0.0',
+      description: 'Aplicacion para el manejo de cadenas de Inventario de Panaderia'
+    },
+    servers: [
+      {
+        url: 'http://localhost:3001'
+      }
+    ]
+  },
+  apis: ['./routes/Api/*.js']
+}
+
+const swaggerSpec = swaggerJSDoc(swaggerOptions)
+
+
+
 //este no va en el examen
 const cors = require('cors');
 var connection = mysql.createConnection({
@@ -17,27 +42,21 @@ var connection = mysql.createConnection({
   password : Configuracion.password,
   database : Configuracion.database
 });
-console.log(Configuracion);
+
+
+
 
 const myLogger = function (req, res, next) {
     console.log(`Se ha llamado la ruta: ${req.path} - ${new Date().toLocaleDateString()}`)
     next()
 }
     
-var corsOptions = {
-    origin: 'hhtp://localhost:5500',
-    optionsSuccessStatus: 200
-
-}
 
 const app = express();
 
 connection.connect();
 
-var corsOptions = {
-    origin: 'http://localhost:5500',
-    optionsSuccessStatus: 200 //
-}
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(myLogger)
@@ -45,6 +64,10 @@ app.use(morgan('combined'))
 app.use(helmet())
 //esto no va en el examen 
 app.use(cors());
+app.use(rutasProducto)
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+
 
 //********************[TABLA TIPO PANES]*****************************
 app.use(RutasTipoPanes)

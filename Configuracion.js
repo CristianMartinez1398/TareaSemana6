@@ -1,5 +1,5 @@
 const Configuracion = {
-    puerto: 3000,
+    puerto: 3001,
     host: 'localhost',
     user: 'Inventario_Panaderia',
     password: 'Septiembre13',

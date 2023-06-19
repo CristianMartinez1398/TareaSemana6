@@ -28,6 +28,7 @@ CREATE TABLE `tabla_producto` (
   `Descripcion` varchar(200) NOT NULL,
   `Cantidad_Disponible` int NOT NULL,
   `Precio` double NOT NULL,
+  `Imagen_Producto` varchar(200) NOT NULL,
   `Tabla_Proveedor_ID` int NOT NULL,
   `Tabla_Tipo_Panes_ID` int NOT NULL,
   PRIMARY KEY (`ID`,`Tabla_Proveedor_ID`,`Tabla_Tipo_Panes_ID`),
@@ -44,7 +45,7 @@ CREATE TABLE `tabla_producto` (
 
 LOCK TABLES `tabla_producto` WRITE;
 /*!40000 ALTER TABLE `tabla_producto` DISABLE KEYS */;
-INSERT INTO `tabla_producto` VALUES (1,'Bimbo','El mejor pan de Honduras',10,25,2,3);
+INSERT INTO `tabla_producto` VALUES (1,'Bimbo','El mejor pan de Honduras',10,25,'',2,3),(2,'Pan','El pan de la casa',10,80,'https://www.mujerdeelite.com/fotos/1793/1793_l.jpg',2,3),(3,'Pan','El pan de la casa',10,80,'https://www.mujerdeelite.com/fotos/1793/1793_l.jpg',2,3),(4,'Pan','El mejor pan para tomar con una tasa de café',5,45,'https://www.mexicodesconocido.com.mx/wp-content/uploads/2020/04/Captura-de-Pantalla-2020-04-23-a-las-18.33.36.png',2,3);
 /*!40000 ALTER TABLE `tabla_producto` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -57,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-31 21:49:17
+-- Dump completed on 2023-06-18 22:11:24

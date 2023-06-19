@@ -41,7 +41,7 @@ CREATE TABLE `tabla_materiaprima_has_tabla_producto` (
 
 LOCK TABLES `tabla_materiaprima_has_tabla_producto` WRITE;
 /*!40000 ALTER TABLE `tabla_materiaprima_has_tabla_producto` DISABLE KEYS */;
-INSERT INTO `tabla_materiaprima_has_tabla_producto` VALUES (1,1,2,3);
+INSERT INTO `tabla_materiaprima_has_tabla_producto` VALUES (2,1,2,3);
 /*!40000 ALTER TABLE `tabla_materiaprima_has_tabla_producto` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-31 21:49:17
+-- Dump completed on 2023-06-18 22:11:24

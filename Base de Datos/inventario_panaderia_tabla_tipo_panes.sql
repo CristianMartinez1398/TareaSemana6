@@ -39,7 +39,7 @@ CREATE TABLE `tabla_tipo_panes` (
 
 LOCK TABLES `tabla_tipo_panes` WRITE;
 /*!40000 ALTER TABLE `tabla_tipo_panes` DISABLE KEYS */;
-INSERT INTO `tabla_tipo_panes` VALUES (3,'Integral','Baguette',2,'2024-05-23 00:00:00','Bolsa'),(5,'Grande','Dulce',5,'2020-07-23 00:00:00','Cajita');
+INSERT INTO `tabla_tipo_panes` VALUES (1,'Mediano','Chocolate',5,'2020-12-24 00:00:00','Bolsa'),(2,'pequeños','Salado',10,'2020-07-23 00:00:00','Cajita pequeña'),(3,'Integral','Baguette',2,'2024-05-23 00:00:00','Bolsa'),(5,'Grande','Dulce',5,'2020-07-23 00:00:00','Cajita'),(6,'Mediano','Chocolate',8,'2020-07-23 00:00:00','Bolsa'),(7,'Grande','Dulce',5,'2020-07-23 00:00:00','Cajita');
 /*!40000 ALTER TABLE `tabla_tipo_panes` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-31 21:49:17
+-- Dump completed on 2023-06-18 22:11:24

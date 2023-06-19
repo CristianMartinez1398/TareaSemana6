@@ -1,7 +1,7 @@
 const express = require('express')
 const rutas = express.Router()
 //const{ Connection } = require('mysql');
-const Configuracion = require('./Configuracion');
+const Configuracion = require('../../Configuracion');
 var mysql = require('mysql');
 var C = mysql.createConnection({
     host     : Configuracion.host,
@@ -10,8 +10,50 @@ var C = mysql.createConnection({
     database : Configuracion.database
 });
 
+/**
+ * @openapi
+ * tags:
+ *    name: Productos
+ *    description: Endpoints de la API para manejar informacion del producto
+ */
+
+/**
+ * @openapi
+ * components:
+ *      schemas:
+ *          Productos:
+ *              type: object
+ *              properties:
+ *                    id:
+ *                      type: int
+ *                      description: Id del producto registrado
+ *                    Nombre:
+ *                      type: string
+ *                      description: Nombre del producto registrado
+ */
+
+
+/**
+ * @openapi
+ * /api/v1/TablaProducto: 
+ *   get:
+ *     tags: [Productos]
+ *      
+ *     description: Esto trae solo producto.
+ *     responses:
+ *       200:
+ *         description: Traemos toda la información de todos los productos guardados.
+ *         content:
+ *              application/json:
+ *              schema:
+ *                  type: array
+ *                  item:
+ *                      $ref: '#/components/schemas/Productos' 
+ */
+
+
 rutas.get('/api/v1/TablaProducto', (req, res) =>{
-    C.query('select ID, Nombre, Descripcion, Cantidad_Disponible, Precio, Tabla_Proveedor_ID, Tabla_Tipo_Panes_ID from inventario_panaderia.tabla_producto;', function(err, rows, fields) {
+    C.query('select ID, Nombre, Descripcion, Cantidad_Disponible, Precio, Imagen_Producto,Tabla_Proveedor_ID, Tabla_Tipo_Panes_ID from inventario_panaderia.tabla_producto;', function(err, rows, fields) {
         if (err) throw err;
         res.status(200).json(rows)
         //console.log('The solution is: ', rows[0].solution);
@@ -19,7 +61,7 @@ rutas.get('/api/v1/TablaProducto', (req, res) =>{
 })
 
 rutas.post('/api/v1/TablaProducto', (req, res) =>{
-    const {ID, Nombre, Descripcion, Cantidad_Disponible, Precio, Tabla_Proveedor_ID, Tabla_Tipo_Panes_ID} = req.body;
+    const {ID, Nombre, Descripcion, Cantidad_Disponible, Precio, Imagen_Producto,Tabla_Proveedor_ID, Tabla_Tipo_Panes_ID} = req.body;
     let respuestaErrorCliente = [];
 
     if (!ID) {
@@ -40,6 +82,9 @@ rutas.post('/api/v1/TablaProducto', (req, res) =>{
     if (!Precio) {
         respuestaErrorCliente.push("El precio no puede estar vacia ingrese el dato por favor.")
     }
+    if (!Imagen_Producto) {
+        respuestaErrorCliente.push("La Imagen del producto no puede estar vacia ingrese el dato por favor.")
+    }
     if (!Tabla_Proveedor_ID) {
         respuestaErrorCliente.push("La tabla de proveedor no puede estar vacia ingrese el dato por favor.")
     }
@@ -51,7 +96,7 @@ rutas.post('/api/v1/TablaProducto', (req, res) =>{
         return;
     }
     //res.status(200).json(id)
-    C.query('insert into inventario_panaderia.tabla_producto(ID, Nombre, Descripcion, Cantidad_Disponible, Precio, Tabla_Proveedor_ID, Tabla_Tipo_Panes_ID) values(?, ?, ?, ?, ?, ?, ?); ',[ID, Nombre, Descripcion, Cantidad_Disponible, Precio, Tabla_Proveedor_ID, Tabla_Tipo_Panes_ID], function(err, rows, fields) {
+    C.query('insert into inventario_panaderia.tabla_producto(ID, Nombre, Descripcion, Cantidad_Disponible, Precio, Imagen_Producto,Tabla_Proveedor_ID, Tabla_Tipo_Panes_ID) values(?, ?, ?, ?, ?, ?, ?, ?); ',[ID, Nombre, Descripcion, Cantidad_Disponible, Precio, Imagen_Producto,Tabla_Proveedor_ID, Tabla_Tipo_Panes_ID], function(err, rows, fields) {
         //if (err) throw err;
         if (err) {
             console.log(err);

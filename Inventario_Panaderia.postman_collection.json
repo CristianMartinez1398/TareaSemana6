@@ -34,13 +34,22 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ID\": 7, \r\n    \"Tipo_Pan\": \"Grande\",\r\n    \"Tipo_Sabor\": \"Dulce\", \r\n    \"Cantidad\": 5, \r\n    \"Fecha_Vencimiento\": \"20-07-23\", \r\n    \"Tipo_Empaque\": \"Cajita\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "http://localhost:3000/api/v1/tablatipopanes",
+							"raw": "http://localhost:3001/api/v1/tablatipopanes",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "3001",
 							"path": [
 								"api",
 								"v1",
@@ -117,14 +126,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/TablaProveedores",
+							"raw": "http://localhost:3001/api/v1/TablaProveedores",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "3001",
 							"path": [
 								"api",
+								"v1",
 								"TablaProveedores"
 							]
 						}
@@ -166,7 +176,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"ID\": 6,\r\n    \"Nombre_Proveedor\": \"Bimbo\", \r\n    \"Fecha_Entrega\":\"23-05-8\",\r\n    \"Tipo_Producto\": \"Pan Blanco\", \r\n    \"Precio\": 85\r\n\r\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -174,12 +184,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/v1/TablaProveedores",
+							"raw": "http://localhost:3001/api/v1/TablaProveedores",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "3001",
 							"path": [
 								"api",
 								"v1",
@@ -265,12 +275,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/v1/TablaMateriaPrima",
+							"raw": "http://localhost:3001/api/v1/TablaMateriaPrima",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "3001",
 							"path": [
 								"api",
 								"v1",
@@ -531,12 +541,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/v1/TablaMateriaHasTablaProducto/:Tabla_MateriaPrima_ID",
+							"raw": "http://localhost:3001/api/v1/TablaMateriaHasTablaProducto/:Tabla_MateriaPrima_ID",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "3001",
 							"path": [
 								"api",
 								"v1",
@@ -546,7 +556,7 @@
 							"variable": [
 								{
 									"key": "Tabla_MateriaPrima_ID",
-									"value": ""
+									"value": "2"
 								}
 							]
 						}

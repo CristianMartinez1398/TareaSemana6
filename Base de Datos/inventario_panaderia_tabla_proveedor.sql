@@ -27,7 +27,8 @@ CREATE TABLE `tabla_proveedor` (
   `Nombre_Proveedor` varchar(100) NOT NULL,
   `Fecha_Entrega` datetime NOT NULL,
   `Tipo_Producto` varchar(45) NOT NULL,
-  `Precio` int NOT NULL,
+  `Telefono` varchar(14) NOT NULL,
+  `Fotografia` varchar(200) NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -38,7 +39,7 @@ CREATE TABLE `tabla_proveedor` (
 
 LOCK TABLES `tabla_proveedor` WRITE;
 /*!40000 ALTER TABLE `tabla_proveedor` DISABLE KEYS */;
-INSERT INTO `tabla_proveedor` VALUES (1,'Bimbo','2023-05-16 00:00:00','Pan',45),(2,'Sula','0000-00-00 00:00:00','Queso',200),(3,'Breadco','0000-00-00 00:00:00','Baguette',120),(4,'Bimbo ','2023-04-30 00:00:00','Pan Dulce',110),(5,'Bimbo','2012-05-23 00:00:00','Pan Integral',98),(6,'La Casitas','2023-04-16 00:00:00','Pan Largo',60),(7,'Sula','2023-01-16 00:00:00','Pan Molde',135),(8,'Breadco','2023-08-25 00:00:00','Calleta de lengua',35),(9,'Bimbo','2023-05-16 00:00:00','Pan blanco',45);
+INSERT INTO `tabla_proveedor` VALUES (1,'Bimbo','2023-05-16 00:00:00','Pan','',''),(2,'Sula','0000-00-00 00:00:00','Queso','',''),(3,'Breadco','0000-00-00 00:00:00','Baguette','',''),(4,'Bimbo ','2023-04-30 00:00:00','Pan Dulce','',''),(5,'Bimbo','2012-05-23 00:00:00','Pan Integral','',''),(6,'La Casitas','2023-04-16 00:00:00','Pan Largo','',''),(7,'Sula','2023-01-16 00:00:00','Pan Molde','',''),(8,'Breadco','2023-08-25 00:00:00','Calleta de lengua','',''),(9,'Bimbo','2023-05-16 00:00:00','Pan blanco','',''),(10,'Bimbo','2023-05-16 00:00:00','Pan blanco','2213-2415','https://s1.eestatic.com/2018/06/19/ciencia/salud/alimentacion-nutricion-diabetes_316229183_82645358_1706x960.jpg'),(11,'AGUA AZUL','2023-05-24 00:00:00','Jugos de narenja','2225-2628','https://i0.wp.com/getsalut.com/wp-content/uploads/2021/03/Naranja-Puro.png?fit=2000%2C2000&ssl=1');
 /*!40000 ALTER TABLE `tabla_proveedor` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-31 21:49:17
+-- Dump completed on 2023-06-18 22:11:24
